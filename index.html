@@ -3,79 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animo animo</title>
+  <title>Animo Animo</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #fef2f4;
+      font-family: Arial, sans-serif;
+    }
+
+    .heart {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: #e63946;
+      transform: rotate(-45deg);
+      animation: beat 1s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: #e63946;
+      border-radius: 50%;
+      top: -50px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 50px;
+      top: 0;
+    }
+
+    @keyframes beat {
+      0%, 100% {
+        transform: scale(1) rotate(-45deg);
+      }
+      50% {
+        transform: scale(1.1) rotate(-45deg);
+      }
+    }
+
+    .text {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 1.2rem; /* Ajusta el tamaño del texto */
+      color: #333;
+    }
+
+    @media (max-width: 600px) {
+      .text {
+        font-size: 1rem; /* Reduce el tamaño del texto en pantallas pequeñas */
+      }
+    }
+  </style>
 </head>
-<h1>Que te mejores Narly</h1>
 <body>
-   
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #fef2f4;
-            font-family: Arial, sans-serif;
-          }
 
-          h1{
-            width: 300px;
-          }
-          
-          .heart {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            background-color: #e63946;
-            transform: rotate(-45deg);
-            animation: beat 1s infinite;
-          }
-          
-          .heart::before,
-          .heart::after {
-            content: "";
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background-color: #e63946;
-            border-radius: 50%;
-            top: -50px;
-            left: 0;
-          }
-          
-          .heart::after {
-            left: 50px;
-            top: 0;
-          }
-          
-          @keyframes beat {
-            0%, 100% {
-              transform: scale(1) rotate(-45deg);
-            }
-            50% {
-              transform: scale(1.1) rotate(-45deg);
-            }
-          }
-          
-    </style>
-
-   
   <div class="heart"></div>
-
-
-
+  <h1 class="text">¡Anímate, todo va a salir bien Narlyy! 🌟</h1>
 
   <script>
     const heart = document.querySelector('.heart');
 
-heart.addEventListener('click', () => {
-  heart.style.animation = 'none'; // Detener animación temporalmente
-  setTimeout(() => {
-    heart.style.animation = ''; // Reiniciar la animación
-  }, 50);
-});
+    heart.addEventListener('click', () => {
+      heart.style.animation = 'none'; // Detener animación temporalmente
+      setTimeout(() => {
+        heart.style.animation = ''; // Reiniciar la animación
+      }, 50);
+    });
 
+    heart.addEventListener("click", function() {
+      alert("¡Y que te has tomado?");
+    });
   </script>
   
 </body>
